@@ -13,7 +13,7 @@ from optparse import OptionParser
 from socketIO_client import SocketIO
 import time
 
-class Akinji:
+class Akinji(object):
     def __init__(self):
         options, args = self.parseOptions()
         
@@ -74,7 +74,7 @@ class Akinji:
 """ Threads to send requests """
 class AkinjiThread(Thread):
     def __init__ (self, count, host, port, waitFor, onMsg):
-        Thread.__init__(self)
+        super(AkinjiThread, self).__init__()
         self.host = host
         self.port = port
         self.waitFor = waitFor
